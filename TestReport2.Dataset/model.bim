@@ -1,0 +1,771 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Cookie Sales\",\"County Population\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.122.1066.0 (23.10)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-GB",
+    "cultures": [
+      {
+        "name": "en-GB",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "fastCombine": true,
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "5b0465a0-f172-4b28-a993-02ef0ad944e2",
+        "fromColumn": "Date",
+        "fromTable": "Cookie Sales",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_21c24a5a-cb61-4cf0-932c-0c056ca995f0"
+      },
+      {
+        "name": "84b9f852-8aa1-4745-90f1-b7784fe69391",
+        "fromColumn": "County Population.Population",
+        "fromTable": "Cookie Sales",
+        "toColumn": "Population",
+        "toTable": "County Population"
+      }
+    ],
+    "sourceQueryCulture": "en-GB",
+    "tables": [
+      {
+        "name": "DateTableTemplate_fe9b5e0f-10e6-434c-b0a3-8313ba2a56e1",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "aef644e1-1297-4e4a-9b35-5f5f9421cf61",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isHidden": true,
+            "lineageTag": "e66d7790-404c-4241-afd9-093cb2f86e64",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isHidden": true,
+            "lineageTag": "145cb999-dcd9-46f8-9693-162066424c8f",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "a5c47939-2099-43ed-a785-ee53b851d067",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isHidden": true,
+            "lineageTag": "ec7dc39a-75dc-4c0c-930b-2afe68133857",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "cc8831f4-14da-437f-a6e3-385ba02b4960",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isHidden": true,
+            "lineageTag": "7cccd469-d18e-4a30-b220-d9effd1ece61",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "31827f10-c6c0-479f-8e0b-50429110757e",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "04adae2d-63cc-4f3e-b418-22530e129ab0",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "93bcc7da-3176-4f45-9306-56b14afd2bce",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "bfde7c86-0410-4fbe-a16e-eff8fb2c51ec",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "10731e0d-7c29-4245-a5b0-88cded0641f7"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "dc1f7c3f-ad96-489e-bbc3-4d8d0c0a113b",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_fe9b5e0f-10e6-434c-b0a3-8313ba2a56e1",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Cookie Sales",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Country",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c18b62b1-4f9a-4170-8b07-757abbf24a7c",
+            "sourceColumn": "Country",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8ada8883-7931-4970-bff0-07e5546e6a85",
+            "sourceColumn": "Product",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Units Sold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "5a927c54-76cf-4cbf-905a-244f69ac6414",
+            "sourceColumn": "Units Sold",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Revenue per cookie",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "5d5ecce4-e7a2-4b67-b95f-e21454223b28",
+            "sourceColumn": "Revenue per cookie",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Cost per cookie",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "8c7e7d2f-d036-410a-a74c-8bd25e91409f",
+            "sourceColumn": "Cost per cookie",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Revenue",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "f9139355-0e15-4e82-a426-eaef3151d4e8",
+            "sourceColumn": "Revenue",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e5cc2e15-b0b8-4b8f-a51f-2dea5a754252",
+            "sourceColumn": "Cost",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Profit",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "e3e58a78-a129-4fad-97ce-126afc75bf60",
+            "sourceColumn": "Profit",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "736bd616-c201-4384-a9e6-0ad687564a65",
+            "sourceColumn": "Date",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_21c24a5a-cb61-4cf0-932c-0c056ca995f0"
+                },
+                "isDefault": true,
+                "relationship": "5b0465a0-f172-4b28-a993-02ef0ad944e2"
+              }
+            ]
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c3829f13-6f09-4c95-927c-2f1c55501b84",
+            "sourceColumn": "Month",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Month Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "68d14951-65fc-40c9-8209-5338bc51fda8",
+            "sourceColumn": "Month Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a575b51b-56c9-464c-b779-8826b17c07ed",
+            "sourceColumn": "Year",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "County Population.Population",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a5170c00-68ed-493c-ae1f-0510f86df3eb",
+            "sourceColumn": "County Population.Population",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "ffe257ae-5fd0-4bfd-bb2f-1c736a26b1a6",
+        "partitions": [
+          {
+            "name": "Cookie Sales",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"C:\\Scott Logic\\PowerBI\\Kevin Cookie Company Financials.xlsx\"), null, true),",
+                "    #\"Cookie Sales_Sheet\" = Source{[Item=\"Cookie Sales\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Cookie Sales_Sheet\", [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Country\", type text}, {\"Product\", type text}, {\"Units Sold\", type number}, {\"Revenue per cookie\", Int64.Type}, {\"Cost per cookie\", Int64.Type}, {\"Revenue\", type number}, {\"Cost\", Int64.Type}, {\"Profit\", type number}, {\"Date\", type date}, {\"Month Number\", Int64.Type}, {\"Month Name\", type text}, {\"Year\", Int64.Type}}),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Changed Type\",{{\"Units Sold\", Int64.Type}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Changed Type1\",{{\"Month Number\", \"Month\"}}),",
+                "    #\"Merged Queries\" = Table.NestedJoin(#\"Renamed Columns\", {\"Country\"}, #\"County Population\", {\"Country / Dependency\"}, \"County Population\", JoinKind.LeftOuter),",
+                "    #\"Expanded County Population\" = Table.ExpandTableColumn(#\"Merged Queries\", \"County Population\", {\"Population\"}, {\"County Population.Population\"}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Expanded County Population\", each true)",
+                "in",
+                "    #\"Filtered Rows\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_21c24a5a-cb61-4cf0-932c-0c056ca995f0",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "2bdb3cb3-7ad2-4876-8282-a78b6ecf976e",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isHidden": true,
+            "lineageTag": "0e412d0c-6be7-4ce2-b1a7-bfa29c74a586",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isHidden": true,
+            "lineageTag": "465f8350-a0d0-4380-aacd-e8bbbe354af3",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "0fa6b68d-51d5-4ebb-95cc-46da09ff3fb6",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isHidden": true,
+            "lineageTag": "6b3b8a7e-02f7-4356-b1e3-ee90a88e5274",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "0d3d8b7e-8dda-468e-a347-6f3130631614",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isHidden": true,
+            "lineageTag": "ed48d8a8-d321-420b-beca-14d03e1364e7",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "1d589524-e368-4cfe-8f85-4601ece846c1",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "a38960a3-985b-4b3f-8c02-6335ec774ebe",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "2553841e-bdae-40a6-bf6b-c4faf3e7c883",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "3ece5aea-244b-4184-874b-1117c3915b87",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "7833bd54-066c-436d-8c6f-401f65ffe66e"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "69d34fcc-48b2-4a60-a7ef-f5aa19e494d7",
+        "partitions": [
+          {
+            "name": "LocalDateTable_21c24a5a-cb61-4cf0-932c-0c056ca995f0",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('Cookie Sales'[Date])), 1, 1), Date(Year(MAX('Cookie Sales'[Date])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "County Population",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Country / Dependency",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "be91b90f-850b-4e0e-8731-960a97adb941",
+            "sourceColumn": "Country / Dependency",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Population",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "31a3ff4f-024c-4932-8f85-7790608e2f9e",
+            "sourceColumn": "Population",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "42905a99-2986-40c7-b055-8a21a487fde0",
+        "partitions": [
+          {
+            "name": "County Population",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Web.BrowserContents(\"https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population\"),",
+                "    #\"Extracted Table From Html\" = Html.Table(Source, {{\"Column1\", \"TABLE.wikitable.sortable > * > TR > :nth-child(1)\"}, {\"Column2\", \"TABLE.wikitable.sortable > * > TR > :nth-child(2)\"}, {\"Column3\", \"TABLE.wikitable.sortable > * > TR > :nth-child(3)\"}, {\"Column4\", \"TABLE.wikitable.sortable > * > TR > :nth-child(4)\"}, {\"Column5\", \"TABLE.wikitable.sortable > * > TR > :nth-child(5)\"}, {\"Column6\", \"TABLE.wikitable.sortable > * > TR > :nth-child(6)\"}, {\"Column7\", \"TABLE.wikitable.sortable > * > TR > :nth-child(7)\"}}, [RowSelector=\"TABLE.wikitable.sortable > * > TR\"]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Extracted Table From Html\", [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"\", type text}, {\"Country / Dependency\", type text}, {\"Population\", Int64.Type}, {\"% ofworld\", Percentage.Type}, {\"Date\", type text}, {\"Source (official or fromthe United Nations)\", type text}, {\"_1\", type text}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Changed Type\",{\"\", \"% ofworld\", \"Date\", \"Source (official or fromthe United Nations)\", \"_1\"}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Removed Columns\", each ([#\"Country / Dependency\"] = \"Canada\" or [#\"Country / Dependency\"] = \"France\" or [#\"Country / Dependency\"] = \"Germany\" or [#\"Country / Dependency\"] = \"Mexico\" or [#\"Country / Dependency\"] = \"United States\"))",
+                "in",
+                "    #\"Filtered Rows\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
