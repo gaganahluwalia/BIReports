@@ -34,6 +34,15 @@
       "name": "ReportSection",
       "visualContainers": [
         {
+          "config": "{\"name\":\"0cd85913c05216303de0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":524.8291571753987,\"y\":500.53151100987094,\"z\":4001,\"width\":605.4973424449507,\"height\":170.08352315869402,\"tabOrder\":4001}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Cookie Sales.Month\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Cookie Sales.Cost)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Cookie Sales\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Month\"},\"Name\":\"Cookie Sales.Month\",\"NativeReferenceName\":\"Month\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Cost\"}},\"Function\":0},\"Name\":\"Sum(Cookie Sales.Cost)\",\"NativeReferenceName\":\"Sum of Cost\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Cost\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 170.08,
+          "width": 605.50,
+          "x": 524.83,
+          "y": 500.53,
+          "z": 4001.00
+        },
+        {
           "config": "{\"name\":\"93fec31521cc27b20621\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20.565690376569037,\"y\":79.52066945606694,\"z\":1000,\"width\":606.0023430962343,\"height\":170.00970711297072,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Cookie Sales.Profit)\"}],\"Category\":[{\"queryRef\":\"Cookie Sales.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Cookie Sales\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Profit\"}},\"Function\":0},\"Name\":\"Sum(Cookie Sales.Profit)\",\"NativeReferenceName\":\"Sum of Profit\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"},\"Name\":\"Cookie Sales.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Profit by Date'\"}}}}}]}}}",
           "filters": "[]",
           "height": 170.01,
