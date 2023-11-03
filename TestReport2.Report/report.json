@@ -43,7 +43,7 @@
           "z": 1000.00
         },
         {
-          "config": "{\"name\":\"c18a9cc14d3a5710bc51\",\"layouts\":[{\"id\":0,\"position\":{\"x\":674.5546443514644,\"y\":79.52066945606694,\"z\":3000,\"width\":606.0023430962343,\"height\":170.00970711297072,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Cookie Sales.Country\"},{\"queryRef\":\"Cookie Sales.County Population.Population\"},{\"queryRef\":\"Sum(Cookie Sales.Units Sold)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Cookie Sales\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"County Population.Population\"},\"Name\":\"Cookie Sales.County Population.Population\",\"NativeReferenceName\":\"County Population.Population\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Country\"},\"Name\":\"Cookie Sales.Country\",\"NativeReferenceName\":\"Country\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Units Sold\"}},\"Function\":0},\"Name\":\"Sum(Cookie Sales.Units Sold)\",\"NativeReferenceName\":\"Sum of Units Sold\"}]},\"drillFilterOtherVisuals\":true}}",
+          "config": "{\"name\":\"c18a9cc14d3a5710bc51\",\"layouts\":[{\"id\":0,\"position\":{\"x\":674.5546443514644,\"y\":79.52066945606694,\"z\":3000,\"width\":606.0023430962343,\"height\":170.00970711297072,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Cookie Sales.Country\"},{\"queryRef\":\"Cookie Sales.County Population.Population\"},{\"queryRef\":\"Sum(Cookie Sales.Units Sold)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Cookie Sales\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"County Population.Population\"},\"Name\":\"Cookie Sales.County Population.Population\",\"NativeReferenceName\":\"County Population.Population\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Country\"},\"Name\":\"Cookie Sales.Country\",\"NativeReferenceName\":\"Country\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Units Sold\"}},\"Function\":0},\"Name\":\"Sum(Cookie Sales.Units Sold)\",\"NativeReferenceName\":\"Sum of Units Sold\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"County Population.Population\"}}}]},\"drillFilterOtherVisuals\":true}}",
           "filters": "[]",
           "height": 170.01,
           "width": 606.00,
@@ -77,6 +77,15 @@
           "x": 9.60,
           "y": 0.00,
           "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"f05112865dce74958948\",\"layouts\":[{\"id\":0,\"position\":{\"x\":21,\"y\":502.5,\"width\":606,\"height\":170,\"z\":4001,\"tabOrder\":4001}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Cookie Sales.Revenue)\"}],\"Category\":[{\"queryRef\":\"Cookie Sales.Month Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Cookie Sales\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Revenue\"}},\"Function\":0},\"Name\":\"Sum(Cookie Sales.Revenue)\",\"NativeReferenceName\":\"Sum of Revenue\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Month Name\"},\"Name\":\"Cookie Sales.Month Name\",\"NativeReferenceName\":\"Month Name\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Revenue\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Revenue by Month'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 170.00,
+          "width": 606.00,
+          "x": 21.00,
+          "y": 502.50,
+          "z": 4001.00
         }
       ],
       "width": 1280.00
