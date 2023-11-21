@@ -268,7 +268,11 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Table"
+            "value": "Exception"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -509,6 +513,25 @@
             "lineageTag": "dd2e7a6a-1d17-4ace-838f-af6a0b9995a1",
             "summarizeBy": "sum",
             "type": "calculated"
+          },
+          {
+            "name": "ProfitNewSam",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "'Cookie Sales'[Revenue] - 'Cookie Sales'[Cost]",
+            "isDataTypeInferred": true,
+            "lineageTag": "b0dd0e97-2d99-4d95-8db1-2d183b29469e",
+            "summarizeBy": "sum",
+            "type": "calculated"
           }
         ],
         "lineageTag": "ffe257ae-5fd0-4bfd-bb2f-1c736a26b1a6",
@@ -519,7 +542,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Source = Excel.Workbook(File.Contents(\"C:\\Scott Logic\\PowerBI\\Kevin Cookie Company Financials.xlsx\"), null, true),",
+                "    Source = Excel.Workbook(File.Contents(\"C:\\Users\\shobbs\\BIReports\\DataSource\\Kevin Cookie Company Financials.xlsx\"), null, true),",
                 "    #\"Cookie Sales_Sheet\" = Source{[Item=\"Cookie Sales\",Kind=\"Sheet\"]}[Data],",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Cookie Sales_Sheet\", [PromoteAllScalars=true]),",
                 "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Country\", type text}, {\"Product\", type text}, {\"Units Sold\", type number}, {\"Revenue per cookie\", Int64.Type}, {\"Cost per cookie\", Int64.Type}, {\"Revenue\", type number}, {\"Cost\", Int64.Type}, {\"Profit\", type number}, {\"Date\", type date}, {\"Month Number\", Int64.Type}, {\"Month Name\", type text}, {\"Year\", Int64.Type}}),",
