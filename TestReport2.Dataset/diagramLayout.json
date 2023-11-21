@@ -11,7 +11,7 @@
         {
           "location": {
             "x": 315,
-            "y": 484.5
+            "y": 304
           },
           "nodeIndex": "Cookie Sales",
           "nodeLineageTag": "ffe257ae-5fd0-4bfd-bb2f-1c736a26b1a6",
@@ -19,12 +19,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 0
         },
         {
           "location": {
             "x": 10,
-            "y": 256.5
+            "y": 76
           },
           "nodeIndex": "County Population",
           "nodeLineageTag": "42905a99-2986-40c7-b055-8a21a487fde0",
@@ -32,20 +32,7 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 2,
-          "expandedHeight": 128
-        },
-        {
-          "location": {
-            "x": 589,
-            "y": 285.5
-          },
-          "nodeIndex": "Factories",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 3
+          "zIndex": 0
         }
       ],
       "name": "All tables",
