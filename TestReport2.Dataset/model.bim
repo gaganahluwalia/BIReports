@@ -542,7 +542,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Source = Excel.Workbook(File.Contents(\"C:\\Scott Logic\\PowerBI\\BIReports\\BIReports\\DataSource\\Kevin Cookie Company Financials.xlsx\"), null, true),",
+                "    Source = Excel.Workbook(File.Contents(\"C:\\Users\\shobbs\\BIReports\\DataSource\\Kevin Cookie Company Financials.xlsx\"), null, true),",
                 "    #\"Cookie Sales_Sheet\" = Source{[Item=\"Cookie Sales\",Kind=\"Sheet\"]}[Data],",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Cookie Sales_Sheet\", [PromoteAllScalars=true]),",
                 "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Country\", type text}, {\"Product\", type text}, {\"Units Sold\", type number}, {\"Revenue per cookie\", Int64.Type}, {\"Cost per cookie\", Int64.Type}, {\"Revenue\", type number}, {\"Cost\", Int64.Type}, {\"Profit\", type number}, {\"Date\", type date}, {\"Month Number\", Int64.Type}, {\"Month Name\", type text}, {\"Year\", Int64.Type}}),",
@@ -806,6 +806,17 @@
             "lineageTag": "78057012-0242-47f4-815b-b06b39ce0616"
           },
           {
+            "name": "AveragePopulation",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "AVERAGE('County Population'[Population])",
+            "lineageTag": "168c5889-6d5c-43b2-b5ec-149cfd0194b1"
+          },
+          {
             "name": "SamAveragePopulation",
             "annotations": [
               {
@@ -834,6 +845,81 @@
                 "    #\"Filtered Rows\""
               ],
               "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesSummaryByProduct",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "7f0ca4dc1c7149abac1c6a1627872809"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Product",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "aee8b40d-20d7-4600-9691-2f907b3f1749",
+            "sourceColumn": "Cookie Sales[Product]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "TotalUnitsSold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "84b595bb-8747-4a61-bfd8-412d1981c61a",
+            "sourceColumn": "[TotalUnitsSold]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "TotalProfit",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "9bf05fc9-4ba3-4814-9ab2-08bed24399fa",
+            "sourceColumn": "[TotalProfit]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "5dd6fce8-d7a3-42bd-bce7-de0bf31dacad",
+        "partitions": [
+          {
+            "name": "SalesSummaryByProduct",
+            "mode": "import",
+            "source": {
+              "expression": "SUMMARIZE('Cookie Sales', 'Cookie Sales'[Product], \"TotalUnitsSold\", SUM('Cookie Sales'[Units Sold]), \"TotalProfit\", Sum('Cookie Sales'[Profit]))",
+              "type": "calculated"
             }
           }
         ]

@@ -11,15 +11,7 @@
         {
           "location": {
             "x": 315,
-<<<<<<< HEAD
-<<<<<<< Updated upstream
             "y": 484.5
-=======
-            "y": 612.75
->>>>>>> Stashed changes
-=======
-            "y": 304
->>>>>>> main
           },
           "nodeIndex": "Cookie Sales",
           "nodeLineageTag": "ffe257ae-5fd0-4bfd-bb2f-1c736a26b1a6",
@@ -32,15 +24,7 @@
         {
           "location": {
             "x": 10,
-<<<<<<< HEAD
-<<<<<<< Updated upstream
             "y": 256.5
-=======
-            "y": 384.75
->>>>>>> Stashed changes
-=======
-            "y": 76
->>>>>>> main
           },
           "nodeIndex": "County Population",
           "nodeLineageTag": "42905a99-2986-40c7-b055-8a21a487fde0",
@@ -48,18 +32,13 @@
             "height": 128,
             "width": 234
           },
-<<<<<<< HEAD
           "zIndex": 2,
           "expandedHeight": 128
         },
         {
           "location": {
             "x": 589,
-<<<<<<< Updated upstream
             "y": 285.5
-=======
-            "y": 413.75
->>>>>>> Stashed changes
           },
           "nodeIndex": "Factories",
           "size": {
@@ -67,8 +46,6 @@
             "width": 234
           },
           "zIndex": 3
-<<<<<<< Updated upstream
-=======
         },
         {
           "location": {
@@ -81,10 +58,18 @@
             "width": 234
           },
           "zIndex": 0
->>>>>>> Stashed changes
-=======
+        },
+        {
+          "location": {
+            "x": 589,
+            "y": 249.5
+          },
+          "nodeIndex": "SalesSummaryByProduct",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
           "zIndex": 0
->>>>>>> main
         }
       ],
       "name": "All tables",
