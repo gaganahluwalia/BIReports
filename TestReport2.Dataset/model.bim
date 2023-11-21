@@ -1,10 +1,10 @@
 {
-  "compatibilityLevel": 1567,
+  "compatibilityLevel": 1550,
   "model": {
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Cookie Sales\",\"County Population\",\"Factories\"]"
+        "value": "[\"Cookie Sales\",\"County Population\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -54,13 +54,6 @@
         "fromTable": "Cookie Sales",
         "toColumn": "Population",
         "toTable": "County Population"
-      },
-      {
-        "name": "917bf630-32cf-4ce9-907f-877dad399ccd",
-        "fromColumn": "Country",
-        "fromTable": "Cookie Sales",
-        "toColumn": "Country",
-        "toTable": "Factories"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -484,6 +477,25 @@
             "summarizeBy": "none"
           },
           {
+            "name": "ProfitNew",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "'Cookie Sales'[Revenue] - 'Cookie Sales'[Cost]",
+            "isDataTypeInferred": true,
+            "lineageTag": "8b6655d8-0244-4ea4-9b68-0b015d8ce570",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
             "name": "CostNew",
             "annotations": [
               {
@@ -792,6 +804,17 @@
             "expression": "SUM('County Population'[Population])",
             "formatString": "0",
             "lineageTag": "78057012-0242-47f4-815b-b06b39ce0616"
+          },
+          {
+            "name": "SamAveragePopulation",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "AVERAGE('County Population'[Population])",
+            "lineageTag": "35666d83-2c0c-4885-90ac-a9942cac95b9"
           }
         ],
         "partitions": [
@@ -814,6 +837,7 @@
             }
           }
         ]
+<<<<<<< HEAD
       },
       {
         "name": "Factories",
@@ -957,6 +981,8 @@
           }
         ]
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
       }
     ]
   }
