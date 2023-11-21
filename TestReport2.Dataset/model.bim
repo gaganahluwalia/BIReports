@@ -12,7 +12,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.122.1066.0 (23.10)"
+        "value": "2.123.684.0 (23.11)"
       },
       {
         "name": "PBI_ProTooling",
@@ -267,10 +267,6 @@
         "name": "Cookie Sales",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Table"
           }
@@ -475,6 +471,44 @@
             "lineageTag": "a5170c00-68ed-493c-ae1f-0510f86df3eb",
             "sourceColumn": "County Population.Population",
             "summarizeBy": "none"
+          },
+          {
+            "name": "ProfitNew",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "'Cookie Sales'[Revenue] - 'Cookie Sales'[Cost]",
+            "isDataTypeInferred": true,
+            "lineageTag": "8b6655d8-0244-4ea4-9b68-0b015d8ce570",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "CostNew",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "'Cookie Sales'[Revenue] - 'Cookie Sales'[Profit] ",
+            "isDataTypeInferred": true,
+            "lineageTag": "dd2e7a6a-1d17-4ace-838f-af6a0b9995a1",
+            "summarizeBy": "sum",
+            "type": "calculated"
           }
         ],
         "lineageTag": "ffe257ae-5fd0-4bfd-bb2f-1c736a26b1a6",
@@ -707,10 +741,6 @@
         "name": "County Population",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Table"
           }
@@ -745,6 +775,25 @@
           }
         ],
         "lineageTag": "42905a99-2986-40c7-b055-8a21a487fde0",
+        "measures": [
+          {
+            "name": "TotalPopulation",
+            "expression": "SUM('County Population'[Population])",
+            "formatString": "0",
+            "lineageTag": "78057012-0242-47f4-815b-b06b39ce0616"
+          },
+          {
+            "name": "AveragePopulation",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "AVERAGE('County Population'[Population])",
+            "lineageTag": "168c5889-6d5c-43b2-b5ec-149cfd0194b1"
+          }
+        ],
         "partitions": [
           {
             "name": "County Population",
