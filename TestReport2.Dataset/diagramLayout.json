@@ -32,6 +32,31 @@
             "height": 128,
             "width": 234
           },
+          "zIndex": 2,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 589,
+            "y": 285.5
+          },
+          "nodeIndex": "Factories",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 863,
+            "y": 292.25
+          },
+          "nodeIndex": "SalesSummaryByCountry",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
           "zIndex": 0
         },
         {

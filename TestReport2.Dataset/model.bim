@@ -923,6 +923,152 @@
             }
           }
         ]
+<<<<<<< HEAD
+      },
+      {
+        "name": "Factories",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "Name"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Country",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ee5535d8-402d-41a8-8c3f-3a0dad807363",
+            "sourceColumn": "Country",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Factory Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9a4fc7b9-12e4-4ea6-bded-67cd84fef545",
+            "sourceColumn": "Factory Name",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "c6fcd292-019e-4039-9414-e6af5f188875",
+        "partitions": [
+          {
+            "name": "Factories",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"C:\\Scott Logic\\PowerBI\\BIReports\\BIReports\\DataSource\\Factories.xlsx\"), null, true),",
+                "    financials_Table = Source{[Item=\"financials\",Kind=\"Table\"]}[Data],",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(financials_Table,{{\"Column1\", type text}, {\"Column2\", type text}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Changed Type\",{{\"Column1\", \"Country\"}, {\"Column2\", \"Factory Name\"}})",
+                "in",
+                "    #\"Renamed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+<<<<<<< Updated upstream
+=======
+      },
+      {
+        "name": "SalesSummaryByCountry",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "ed4e7b6de5174423877c60137a2965b5"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Country",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "9f2322ab-f701-4c34-ac22-0b5f554cca6e",
+            "sourceColumn": "Cookie Sales[Country]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "TotalUnitsSold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "1cfc6a02-7d6d-4246-baa8-fe5209150480",
+            "sourceColumn": "[TotalUnitsSold]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "TotalProfit",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "c25cf31f-2c8e-46d3-953e-fe5a11247d18",
+            "sourceColumn": "[TotalProfit]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "3e297079-7b24-4e03-9b95-7645ea57891a",
+        "partitions": [
+          {
+            "name": "SalesSummaryByCountry",
+            "mode": "import",
+            "source": {
+              "expression": "SUMMARIZE('Cookie Sales', 'Cookie Sales'[Country], \"TotalUnitsSold\", SUM('Cookie Sales'[Units Sold]), \"TotalProfit\", Sum('Cookie Sales'[Profit]))",
+              "type": "calculated"
+            }
+          }
+        ]
+>>>>>>> Stashed changes
+=======
+>>>>>>> main
       }
     ]
   }
