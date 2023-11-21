@@ -879,6 +879,84 @@
             }
           }
         ]
+<<<<<<< Updated upstream
+=======
+      },
+      {
+        "name": "SalesSummaryByCountry",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "ed4e7b6de5174423877c60137a2965b5"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Country",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "9f2322ab-f701-4c34-ac22-0b5f554cca6e",
+            "sourceColumn": "Cookie Sales[Country]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "TotalUnitsSold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "1cfc6a02-7d6d-4246-baa8-fe5209150480",
+            "sourceColumn": "[TotalUnitsSold]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "TotalProfit",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "c25cf31f-2c8e-46d3-953e-fe5a11247d18",
+            "sourceColumn": "[TotalProfit]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "3e297079-7b24-4e03-9b95-7645ea57891a",
+        "partitions": [
+          {
+            "name": "SalesSummaryByCountry",
+            "mode": "import",
+            "source": {
+              "expression": "SUMMARIZE('Cookie Sales', 'Cookie Sales'[Country], \"TotalUnitsSold\", SUM('Cookie Sales'[Units Sold]), \"TotalProfit\", Sum('Cookie Sales'[Profit]))",
+              "type": "calculated"
+            }
+          }
+        ]
+>>>>>>> Stashed changes
       }
     ]
   }
