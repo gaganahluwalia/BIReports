@@ -1,10 +1,10 @@
 {
-  "compatibilityLevel": 1567,
+  "compatibilityLevel": 1550,
   "model": {
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Cookie Sales\",\"County Population\",\"Factories\"]"
+        "value": "[\"Cookie Sales\",\"County Population\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -54,13 +54,6 @@
         "fromTable": "Cookie Sales",
         "toColumn": "Population",
         "toTable": "County Population"
-      },
-      {
-        "name": "917bf630-32cf-4ce9-907f-877dad399ccd",
-        "fromColumn": "Country",
-        "fromTable": "Cookie Sales",
-        "toColumn": "Country",
-        "toTable": "Factories"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -484,6 +477,25 @@
             "summarizeBy": "none"
           },
           {
+            "name": "ProfitNew",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "'Cookie Sales'[Revenue] - 'Cookie Sales'[Cost]",
+            "isDataTypeInferred": true,
+            "lineageTag": "8b6655d8-0244-4ea4-9b68-0b015d8ce570",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
             "name": "CostNew",
             "annotations": [
               {
@@ -803,6 +815,17 @@
             ],
             "expression": "AVERAGE('County Population'[Population])",
             "lineageTag": "168c5889-6d5c-43b2-b5ec-149cfd0194b1"
+          },
+          {
+            "name": "SamAveragePopulation",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "AVERAGE('County Population'[Population])",
+            "lineageTag": "35666d83-2c0c-4885-90ac-a9942cac95b9"
           }
         ],
         "partitions": [
@@ -820,71 +843,6 @@
                 "    #\"Filtered Rows\" = Table.SelectRows(#\"Removed Columns\", each ([#\"Country / Dependency\"] = \"Canada\" or [#\"Country / Dependency\"] = \"France\" or [#\"Country / Dependency\"] = \"Germany\" or [#\"Country / Dependency\"] = \"Mexico\" or [#\"Country / Dependency\"] = \"United States\"))",
                 "in",
                 "    #\"Filtered Rows\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
-        "name": "Factories",
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "changedProperties": [
-          {
-            "property": "Name"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Country",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "ee5535d8-402d-41a8-8c3f-3a0dad807363",
-            "sourceColumn": "Country",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Factory Name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "9a4fc7b9-12e4-4ea6-bded-67cd84fef545",
-            "sourceColumn": "Factory Name",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "c6fcd292-019e-4039-9414-e6af5f188875",
-        "partitions": [
-          {
-            "name": "Factories",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Source = Excel.Workbook(File.Contents(\"C:\\Scott Logic\\PowerBI\\BIReports\\BIReports\\DataSource\\Factories.xlsx\"), null, true),",
-                "    financials_Table = Source{[Item=\"financials\",Kind=\"Table\"]}[Data],",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(financials_Table,{{\"Column1\", type text}, {\"Column2\", type text}}),",
-                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Changed Type\",{{\"Column1\", \"Country\"}, {\"Column2\", \"Factory Name\"}})",
-                "in",
-                "    #\"Renamed Columns\""
               ],
               "type": "m"
             }
