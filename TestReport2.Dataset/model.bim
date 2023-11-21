@@ -542,7 +542,7 @@
             "source": {
               "expression": [
                 "let",
-                "    Source = Excel.Workbook(File.Contents(\"C:\\Users\\shobbs\\BIReports\\DataSource\\Kevin Cookie Company Financials.xlsx\"), null, true),",
+                "    Source = Excel.Workbook(File.Contents(\"C:\\Scott Logic\\PowerBI\\BIReports\\BIReports\\DataSource\\Kevin Cookie Company Financials.xlsx\"), null, true),",
                 "    #\"Cookie Sales_Sheet\" = Source{[Item=\"Cookie Sales\",Kind=\"Sheet\"]}[Data],",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Cookie Sales_Sheet\", [PromoteAllScalars=true]),",
                 "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Country\", type text}, {\"Product\", type text}, {\"Units Sold\", type number}, {\"Revenue per cookie\", Int64.Type}, {\"Cost per cookie\", Int64.Type}, {\"Revenue\", type number}, {\"Cost\", Int64.Type}, {\"Profit\", type number}, {\"Date\", type date}, {\"Month Number\", Int64.Type}, {\"Month Name\", type text}, {\"Year\", Int64.Type}}),",
@@ -804,17 +804,6 @@
             "expression": "SUM('County Population'[Population])",
             "formatString": "0",
             "lineageTag": "78057012-0242-47f4-815b-b06b39ce0616"
-          },
-          {
-            "name": "AveragePopulation",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "expression": "AVERAGE('County Population'[Population])",
-            "lineageTag": "168c5889-6d5c-43b2-b5ec-149cfd0194b1"
           },
           {
             "name": "SamAveragePopulation",
